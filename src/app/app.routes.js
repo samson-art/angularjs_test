@@ -13,12 +13,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('root', {
-            url: '',
+            url: '/',
             template: '<ui-view></ui-view>'
         })
         .state('root.roles', {
             parent: 'root',
-            url: '/roles',
+            url: 'roles',
             template: '<div class="row"><div ui-view class="col-md-6"></div><div ui-view="roleDetails" class="col-md-6"></div></div>'
         })
         .state('root.roles.view', {
