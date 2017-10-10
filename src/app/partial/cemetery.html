@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Cemetery interactive map
+      <small>Search grave</small>
+    </h1>
+  </div>
+  <div class="container text-center">
+    <div class="form form-inline">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" ng-model="$ctrl.query" ng-change="$ctrl.changeQuery()" placeholder="Search grave by name">
+      </div>
+      <div class="form-group">
+        <label for="number">№:</label>
+        <input ng-model="$ctrl.num" type="number" class="form-control" id="number" placeholder="Search by №" min="1" ng-change="$ctrl.changeNum()">
+      </div>
+      <a class="btn btn-primary" href="#" role="button" ng-click="$ctrl.search()">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        Search
+      </a>
+    </div>
+    <br>
+    <div class="col-md-6 col-md-offset-3 text-center" ng-if="$ctrl.graveNotFound">
+      <div class="bg-warning">
+        <h4>
+          Nothing founded...
+        </h4>
+      </div>
+    </div>
+    <div class="results" ng-if="$ctrl.results.length > 0">
+      <h4>Finding results:</h4>
+      <div class="container">
+        <ul class="list-inline">
+          <li ng-repeat="r in $ctrl.results">
+            <a href="#" ng-click="$ctrl.selectedGrave=r" class="btn btn-info">
+              {{ r.firstname }}
+              {{ r.lastname }}
+              <span class="glyphicon glyphicon-ok-circle"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center">
+    <div class="col-md-6 col-xs-12">
+      <h4>Cemetery map</h4>
+      <div ng-init="$ctrl.init()" ng-click="$ctrl.graveClick($event)" id="svgout" highlightsvg="$ctrl.selectedGrave"></div>
+    </div>
+    <br class="hidden-md hidden-lg">
+    <div class="col-md-6 col-xs-12" ng-if="!$ctrl.selectedGrave">
+      <h4>About cemetery</h4>
+      <div class="thumbnail">
+        <img src="#" alt="Cemetery photo">
+        <div class="caption text-left">
+          <h5>
+            Le Cimetière du Père-Lachaise
+          </h5>
+          <p>
+            Chaque rêve est nouveau, unique et inconnu. Chaque parcours, chaque promenade (virtuelle) vous transportera d'une tombe à l'autre, au gré de votre sensibilité, dans ce lieu insolite et unique, sans doute le dernier endroit le plus romantique de Paris.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12" ng-if="$ctrl.selectedGrave">
+      <h4>About grave</h4>
+      <div class="thumbnail">
+        <img src="#" alt="Grave photo">
+        <div class="caption">
+          <h5>
+            {{ $ctrl.selectedGrave.firstname }}
+            {{ $ctrl.selectedGrave.lastname }}
+          </h5>
+          <p>
+            <dl class="dl-horizontal">
+              <dt>Birthdate</dt>
+              <dd>{{ $ctrl.selectedGrave.birthdate }}</dd>
+              <dt>Deathdate</dt>
+              <dd>{{ $ctrl.selectedGrave.deathdate }}</dd>
+              <dt>Grave №</dt>
+              <dd>{{ $ctrl.selectedGrave.gravenum }}</dd>
+            </dl>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+
+<h3>{{title}}</h3>
+<table class="table table-hover"
+       ng-if=" vm.contentView.type === 'table' ">
+    <thead>
+    <tr>
+        <th ng-repeat="head in vm.contentView.header">{{head.th}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in vm.array"
+        ng-click="vm.roleClicked(item.id)"
+        ng-class="{active: vm.selectedRoleId === item.id}" >
+
+        <td ng-repeat=" column in vm.contentView.columns ">
+            {{ item[column] }}
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+

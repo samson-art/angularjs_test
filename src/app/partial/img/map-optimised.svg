@@ -1,0 +1,66 @@
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg" version="1.1" viewBox="-180 0 1110 1070">
+    <style type="text/css">
+      .grave {
+        stroke: black;
+        stroke-width: 1px;
+        fill: #2196F3;
+      }
+      .grave:hover{
+        stroke: #8BC34A;
+        stroke-width: 2px;
+        fill: #1E88E5;
+      }
+      .selected {
+        stroke: #006064;
+        stroke-width: 2px;
+        fill: #00BCD4;    !important
+      }
+      .selected:hover {
+        stroke: #006064;
+        stroke-width: 2px;
+        fill: #00ACC1;    !important
+      }
+    </style>
+    <rect class="grave" data="grave-1" width="139.33" height="66.89" x="-179" y="2.72"/>
+    <rect y="2.72" x="-40.07" height="66.89" width="139.33" class="grave" data="grave-2"/>
+    <rect class="grave" data="grave-3" width="139.33" height="66.89" x="96.71" y="2.72"/>
+    <rect class="grave" data="grave-4" width="139.33" height="66.89" x="235.52" y="2.72"/>
+    <rect y="69.59" x="-179" height="66.89" width="139.33" class="grave" data="grave-9"/>
+    <rect class="grave" data="grave-10" width="139.33" height="66.89" x="-40.07" y="69.59"/>
+    <rect y="69.59" x="96.71" height="66.89" width="139.33" class="grave" data="grave-11"/>
+    <rect y="69.59" x="235.52" height="66.89" width="139.33" class="grave" data="grave-12"/>
+    <rect y="2.72" x="373.99" height="66.89" width="139.33" class="grave" data="grave-5"/>
+    <rect class="grave" data="grave-6" width="139.33" height="66.89" x="512.92" y="2.72"/>
+    <rect y="2.72" x="649.7" height="66.89" width="139.33" class="grave" data="grave-7"/>
+    <rect y="2.72" x="788.51" height="66.89" width="139.33" class="grave" data="grave-8"/>
+    <rect class="grave" data="grave-13" width="139.33" height="66.89" x="373.99" y="69.59"/>
+    <rect y="69.59" x="512.92" height="66.89" width="139.33" class="grave" data="grave-14"/>
+    <rect class="grave" data="grave-15" width="139.33" height="66.89" x="649.7" y="69.59"/>
+    <rect class="grave" data="grave-16" width="139.33" height="66.89" x="788.51" y="69.59"/>
+    <rect y="158.07" x="-180.44" height="66.89" width="139.33" class="grave" data="grave-17"/>
+    <rect class="grave" data="grave-18" width="139.33" height="66.89" x="-41.51" y="158.07"/>
+    <rect y="158.07" x="95.26" height="66.89" width="139.33" class="grave" data="grave-19"/>
+    <rect y="158.07" x="234.08" height="66.89" width="139.33" class="grave" data="grave-20"/>
+    <rect class="grave" data="grave-25" width="139.33" height="66.89" x="-180.44" y="224.95"/>
+    <rect y="224.95" x="-41.51" height="66.89" width="139.33" class="grave" data="grave-26"/>
+    <rect class="grave" data="grave-27" width="139.33" height="66.89" x="95.26" y="224.95"/>
+    <rect class="grave" data="grave-28" width="139.33" height="66.89" x="234.08" y="224.95"/>
+    <rect class="grave" data="grave-21" width="139.33" height="66.89" x="372.55" y="158.07"/>
+    <rect y="158.07" x="511.48" height="66.89" width="139.33" class="grave" data="grave-22"/>
+    <rect class="grave" data="grave-23" width="139.33" height="66.89" x="648.25" y="158.07"/>
+    <rect class="grave" data="grave-24" width="139.33" height="66.89" x="787.07" y="158.07"/>
+    <rect y="224.95" x="372.55" height="66.89" width="139.33" class="grave" data="grave-29"/>
+    <rect class="grave" data="grave-30" width="139.33" height="66.89" x="511.48" y="224.95"/>
+    <rect y="224.95" x="648.25" height="66.89" width="139.33" class="grave" data="grave-31"/>
+    <rect y="224.95" x="787.07" height="66.89" width="139.33" class="grave" data="grave-32"/>
+    <rect class="grave" data="grave-51" width="549.98" height="131.26" x="-178.62" y="319.46"/>
+    <rect y="319.46" x="372.8" height="131.26" width="549.98" class="grave" data="grave-52"/>
+    <rect y="451.62" x="-178.51" height="150.24" width="549.75" class="grave" data="grave-49"/>
+    <rect class="grave" data="grave-50" width="549.75" height="150.24" x="372.92" y="451.62"/>
+    <rect class="grave" data="grave-47" width="549.75" height="150.24" x="-178.51" y="601.15"/>
+    <rect y="601.15" x="372.92" height="150.24" width="549.75" class="grave" data="grave-48"/>
+    <rect y="751.52" x="-178.51" height="150.24" width="549.75" class="grave" data="grave-45"/>
+    <rect class="grave" data="grave-46" width="549.75" height="150.24" x="372.92" y="751.52"/>
+    <rect class="grave" data="grave-43" width="549.75" height="150.24" x="-178.51" y="903.55"/>
+    <rect y="903.55" x="372.92" height="150.24" width="549.75" class="grave" data="grave-44"/>
+</svg>
