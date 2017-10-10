@@ -22,12 +22,18 @@ export default class RolesController {
     }
 
     roleClicked(roleId) {
-        this.selectedRoleId = roleId;
-        let state = this._state.current.name;
-        if (state !== 'root.roles.view') {
-            this._state.go(state, {roleId: roleId});
+        if (roleId === this.selectedRoleId) {
+            this.selectedRoleId = null;
+            this._state.go('root.roles.view');
         } else {
-            this._state.go('root.roles.view.detail.users', {roleId: roleId});
+            this.selectedRoleId = roleId;
+            let state = this._state.current.name;
+            if (state !== 'root.roles.view') {
+                this._state.go(state, {roleId: roleId});
+            } else {
+                this._state.go('root.roles.view.detail.users', {roleId: roleId});
+        }
+
         }
 
     }

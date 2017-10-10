@@ -1,0 +1,25 @@
+<table class="table table-hover table-responsive"
+       ng-if=" vm.contentView.type === 'table' ">
+    <thead>
+    <tr>
+        <th ng-repeat="head in vm.contentView.header">{{head.th}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in vm.array"
+        ng-click="vm.roleClicked(item.id)" >
+
+        <td ng-repeat=" column in vm.contentView.columns ">
+            <span ng-if="column === 'readAction' || column === 'updateAction' || column === 'deleteAction' || column === 'adminAction' ">
+                <span ng-if="item[column]">
+                    &#xe013;
+                </span>
+            </span>
+            <span ng-if="column !== 'readAction' && column !== 'updateAction' && column !== 'deleteAction' && column !== 'adminAction'">
+                {{ item[column] }}
+            </span>
+        </td>
+
+    </tr>
+    </tbody>
+</table>

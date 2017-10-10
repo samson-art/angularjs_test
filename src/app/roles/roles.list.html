@@ -10,7 +10,7 @@
     <tbody>
     <tr ng-repeat="item in vm.array"
         ng-click="vm.roleClicked(item.id)"
-        ng-class="{active: vm.selectedRoleId === item.id}" >
+        ng-class="{info: vm.selectedRoleId === item.id}" >
 
         <td ng-repeat=" column in vm.contentView.columns ">
             {{ item[column] }}

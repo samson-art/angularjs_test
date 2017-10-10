@@ -12,6 +12,10 @@ export default class AppSevice {
         return this.getData('users', {roleId: roleId});
     }
 
+    getSystemResourcesByRoleId(roleId) {
+        return this.getData('systemResources', {roleId: roleId});
+    }
+
     getData(name, filter) {
         return this._$http.post('http://localhost:8080/api/' + name + '/get', filter).then(
             function successCallback(response) {

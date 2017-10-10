@@ -7,7 +7,7 @@
 var express = require('express');        // call express
 var app = express();                 // define our app using express
 var bodyParser = require('body-parser');
-var data = {
+const data = {
     roles: [
         {
             "id": 1,
@@ -162,6 +162,117 @@ var data = {
             "cmt": "",
             "role_id": 4
         }
+    ],
+    systemResources: [
+        {
+            "id": 1,
+            "title": "Обзорная панель",
+            "sysName": "dashboard",
+            "readAction": false,
+            "updateAction": false,
+            "deleteAction": false,
+            "adminAction": true,
+            "role_id": 1
+        }, {
+            "id": 2,
+            "title": "Словари",
+            "sysName": "dictionaries",
+            "readAction": false,
+            "updateAction": true,
+            "deleteAction": true,
+            "adminAction": false,
+            "role_id": 1
+        }, {
+            "id": 3,
+            "title": "Системные таблицы",
+            "sysName": "system_tables",
+            "readAction": false,
+            "updateAction": true,
+            "deleteAction": false,
+            "adminAction": true,
+            "role_id": 1
+        }, {
+            "id": 4,
+            "title": "Обзорная панель",
+            "sysName": "dashboard",
+            "readAction": true,
+            "updateAction": true,
+            "deleteAction": false,
+            "adminAction": true,
+            "role_id": 2
+        }, {
+            "id": 5,
+            "title": "Словари",
+            "sysName": "dictionaries",
+            "readAction": false,
+            "updateAction": false,
+            "deleteAction": false,
+            "adminAction": false,
+            "role_id": 2
+        }, {
+            "id": 6,
+            "title": "Системные таблицы",
+            "sysName": "system_tables",
+            "readAction": false,
+            "updateAction": true,
+            "deleteAction": false,
+            "adminAction": false,
+            "role_id": 2
+        }, {
+            "id": 7,
+            "title": "Обзорная панель",
+            "sysName": "dashboard",
+            "readAction": true,
+            "updateAction": true,
+            "deleteAction": true,
+            "adminAction": true,
+            "role_id": 3
+        }, {
+            "id": 8,
+            "title": "Словари",
+            "sysName": "dictionaries",
+            "readAction": false,
+            "updateAction": true,
+            "deleteAction": false,
+            "adminAction": false,
+            "role_id": 3
+        }, {
+            "id": 9,
+            "title": "Системные таблицы",
+            "sysName": "system_tables",
+            "readAction": true,
+            "updateAction": false,
+            "deleteAction": false,
+            "adminAction": false,
+            "role_id": 3
+        }, {
+            "id": 10,
+            "title": "Обзорная панель",
+            "sysName": "dashboard",
+            "readAction": false,
+            "updateAction": true,
+            "deleteAction": true,
+            "adminAction": false,
+            "role_id": 4
+        }, {
+            "id": 11,
+            "title": "Словари",
+            "sysName": "dictionaries",
+            "readAction": true,
+            "updateAction": false,
+            "deleteAction": true,
+            "adminAction": false,
+            "role_id": 4
+        }, {
+            "id": 12,
+            "title": "Системные таблицы",
+            "sysName": "system_tables",
+            "readAction": true,
+            "updateAction": true,
+            "deleteAction": true,
+            "adminAction": true,
+            "role_id": 4
+        }
     ]
 };
 // configure app to use bodyParser()
@@ -169,11 +280,11 @@ var data = {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
+let port = process.env.PORT || 8080;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
-var router = express.Router();              // get an instance of the express Router
+let router = express.Router();              // get an instance of the express Router
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 
@@ -194,10 +305,8 @@ app.use('/api', router);
 // })
 // Add headers
 router.post('/roles/get', function (req, res) {
-
-
-    var roles = data['roles'];
-    var total = roles.length;
+    let roles = data['roles'];
+    let total = roles.length;
     res.json({
         data: {
             total: total,
@@ -206,17 +315,30 @@ router.post('/roles/get', function (req, res) {
     });
 });
 router.post('/users/get', function (req, res) {
-    var roleId = req.body['roleId'];
-    var users = data['users'].filter(function (usr) {
+    let roleId = req.body['roleId'];
+    let users = data['users'].filter(function (usr) {
         return usr.role_id === roleId;
     });
-    var total = users.length;
+    let total = users.length;
     res.json({
         data: {
             total: total,
             array: users
         }
     });
+});
+router.post('/systemResources/get', function (req, res) {
+    let roleId = req.body['roleId'];
+    let systemResources = data.systemResources.filter(function (res) {
+        return res.role_id === roleId;
+    });
+    let total = systemResources.length;
+    res.json({
+        data: {
+            array: systemResources,
+            total: total
+        }
+    })
 });
 
 // START THE SERVER

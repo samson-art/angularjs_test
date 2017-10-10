@@ -1,8 +1,15 @@
 import RolesController from './roles/roles.controller';
 import RolesDetailsController from './roles/roles.details.controller';
 import UsersController from './users/users.controller';
+import SystemResourcesController from './systemResources/systemResources.controller';
+
 // @ngInject
 export default function routes($stateProvider, $urlRouterProvider) {
+
+    // For any unmatched url, send to /route1
+    $urlRouterProvider
+        .otherwise("/roles/")
+        .when('/roles', '/roles/');
 
     $stateProvider
         .state('root', {
@@ -12,13 +19,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
         .state('root.roles', {
             parent: 'root',
             url: '/roles',
-            template: '<div class="row"><div ui-view class="col-md-6"></div><div ui-view="roleDetails" class="col-md-6"></div></div>',
-
-        });
-
-    $urlRouterProvider.when('/roles', '/roles/');
-
-    $stateProvider
+            template: '<div class="row"><div ui-view class="col-md-6"></div><div ui-view="roleDetails" class="col-md-6"></div></div>'
+        })
         .state('root.roles.view', {
             url: '/',
             template: require('./roles/roles.list.html'),
@@ -62,11 +64,18 @@ export default function routes($stateProvider, $urlRouterProvider) {
             url: '/systemResources',
             views: {
                 'systemResources@root.roles.view.detail': {
-                    template: 'System Resources'
+                    template: require('./systemResources/systemResources.html'),
+                    controller: SystemResourcesController,
+                    controllerAs: 'vm'
                 }
             },
             data: {
                 tabName: 'systemResources'
+            },
+            resolve: {
+                objData: function ($service, $stateParams) {
+                    return $service.getSystemResourcesByRoleId(parseInt($stateParams['roleId']));
+                }
             }
         });
 }
